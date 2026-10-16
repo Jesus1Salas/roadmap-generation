@@ -1,0 +1,198 @@
+{
+  "$schema": "https://json-schema.org/draft-07/schema#",
+  "$id": "https://etribe.com.mx/esquemas/diagnostico.schema.json",
+  "title": "Diagnóstico de adopción (Kiro / Quick Suite)",
+  "description": "Salida estructurada de los formularios HTML de diagnóstico. Fuente de verdad para el generador de planes de adopción. Un campo vacío significa 'no reportado en el cuestionario'; no se inventan datos.",
+  "type": "object",
+  "required": ["esquema_version", "tema", "empresa", "contacto", "secciones"],
+  "additionalProperties": false,
+  "properties": {
+    "esquema_version": {
+      "type": "string",
+      "const": "1.0",
+      "description": "Versión del esquema. Permite al generador validar compatibilidad."
+    },
+    "tema": {
+      "type": "string",
+      "enum": ["kiro", "quick_suite"],
+      "description": "Producto del plan de adopción."
+    },
+    "generado_en": {
+      "type": "string",
+      "description": "Fecha ISO 8601 de descarga del formulario (informativo)."
+    },
+    "empresa": {
+      "type": "string",
+      "description": "Nombre del cliente tal cual lo escribió (fidelidad al origen). Deriva el nombre de carpeta Recursos_[CLIENTE]."
+    },
+    "training_path": {
+      "type": "object",
+      "description": "Nivel de training path derivado automáticamente de la autoevaluación de experticia.",
+      "additionalProperties": false,
+      "properties": {
+        "nivel": {
+          "type": "string",
+          "enum": ["basico", "basico_builder", "builder", "productividad", "analitica_automatizacion", "enterprise", ""],
+          "description": "Nivel recomendado. Kiro: basico | basico_builder | builder. Quick: productividad | analitica_automatizacion | enterprise."
+        },
+        "etiqueta": {
+          "type": "string",
+          "description": "Etiqueta legible del nivel (ej. 'Builder — AI-DLC + MCP + Proyecto Real')."
+        },
+        "puntaje_experticia": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 100,
+          "description": "Puntaje 0-100 que resume la autoevaluación, usado para asignar el nivel."
+        },
+        "ajustado_por_usuario": {
+          "type": "boolean",
+          "description": "true si el cliente sobrescribió manualmente la recomendación automática."
+        }
+      }
+    },
+    "contacto": {
+      "type": "object",
+      "description": "Datos de contacto (común a ambos temas).",
+      "additionalProperties": false,
+      "properties": {
+        "fecha": { "type": "string" },
+        "perfil_tecnico": { "type": "string" },
+        "perfil_negocio": { "type": "string" },
+        "champion": { "type": "string" },
+        "proyecto": { "type": "string", "description": "Kiro: proyecto/producto. Quick: área(s) de aplicación." }
+      }
+    },
+    "secciones": {
+      "type": "object",
+      "description": "Respuestas agrupadas por apartado. Las claves presentes dependen del tema; las ausentes se tratan como vacías.",
+      "additionalProperties": false,
+      "properties": {
+        "experticia": {
+          "type": "object",
+          "description": "Autoevaluación de experticia en IA. Alimenta training_path. Común a ambos temas con matices.",
+          "additionalProperties": false,
+          "properties": {
+            "tiempo_usando_ia": { "type": "string", "enum": ["nunca", "menos_3_meses", "3_a_12_meses", "mas_1_ano", ""] },
+            "nivel_prompting": { "type": "string", "description": "1-5 autoevaluado." },
+            "nivel_agentico": { "type": "string", "description": "1-5 (specs/hooks/steering para Kiro; IA agéntica para Quick)." },
+            "ha_creado_artefactos": { "type": "string", "enum": ["varios", "alguno", "nunca", ""], "description": "Prompts de sistema, steering, agentes/hooks (Kiro) o agentes/flows (Quick)." },
+            "herramientas_ia_actuales": { "type": "string" },
+            "experiencia_previa": { "type": "string" }
+          }
+        },
+        "contexto_tecnico": {
+          "type": "object",
+          "description": "Solo Kiro (Sección A).",
+          "additionalProperties": false,
+          "properties": {
+            "stack": { "type": "string" },
+            "arquitectura": { "type": "string" },
+            "repositorios_ci_cd": { "type": "string" },
+            "usa_git_fluido": { "type": "string", "enum": ["fluido", "basico", "no", ""] },
+            "tipo_proyecto": { "type": "string", "enum": ["greenfield", "brownfield", "mixto", ""] },
+            "disenos_specs": { "type": "string" },
+            "prefiere_estructura": { "type": "string", "enum": ["estructura", "mixto", "prototipar", ""] },
+            "integraciones": { "type": "string" },
+            "trabaja_sobre_aws": { "type": "string", "enum": ["si", "algo", "no", ""] },
+            "acceso_aws": { "type": "string" },
+            "tiene_tests": { "type": "string", "enum": ["buena", "algunos", "casi_nada", ""] }
+          }
+        },
+        "contexto_negocio": {
+          "type": "object",
+          "description": "Solo Quick (Sección A).",
+          "additionalProperties": false,
+          "properties": {
+            "areas": { "type": "string" },
+            "audiencia": { "type": "string", "enum": ["negocio", "mixta", "tecnica", ""] },
+            "objetivo_principal": { "type": "string", "enum": ["productividad", "analitica_automatizacion", "plataforma_org", ""] },
+            "herramientas_colaboracion": { "type": "string" },
+            "conocimiento_org": { "type": "string" },
+            "apps_negocio": { "type": "string" },
+            "procesos_manuales": { "type": "string" },
+            "manejo_datos": { "type": "string", "enum": ["nada", "ocasional", "intensivo", ""] },
+            "fuentes_datos": { "type": "string" },
+            "seguridad_compliance": { "type": "string" },
+            "requiere_apps_sin_codigo": { "type": "string", "enum": ["si", "no", "no_se", ""] },
+            "iniciativas_previas": { "type": "string" },
+            "acceso_aws": { "type": "string" },
+            "incluye_linux": { "type": "string", "enum": ["si", "no", ""] }
+          }
+        },
+        "casos_uso": {
+          "type": "object",
+          "description": "Sección C (común). Tabla de casos de uso candidatos + piloto.",
+          "additionalProperties": false,
+          "properties": {
+            "casos": {
+              "type": "array",
+              "maxItems": 5,
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "proceso": { "type": "string" },
+                  "dolor": { "type": "string" },
+                  "frecuencia": { "type": "string" },
+                  "prioridad": { "type": "string", "enum": ["Alta", "Media", "Baja", ""] },
+                  "capacidad": { "type": "string", "description": "Solo Quick: Agentes / Research / BI / Automate / Apps." }
+                }
+              }
+            },
+            "piloto_mvp": { "type": "string" }
+          }
+        },
+        "integraciones_mcp": {
+          "type": "object",
+          "description": "Integraciones/herramientas que el cliente quiere conectar vía MCP. Focaliza la generación de Configuracion_MCPs_[CLIENTE].md: el agente de MCPs prioriza estas categorías y documenta solo lo relevante. Un valor vacío = no reportado.",
+          "additionalProperties": false,
+          "properties": {
+            "categorias": {
+              "type": "string",
+              "description": "Lista separada por comas de categorías marcadas (checkboxes): gestion_tareas, repositorio, documentacion, comunicacion, base_datos, observabilidad, nube, diseno, crm, otro."
+            },
+            "gestion_tareas": { "type": "string", "description": "Herramienta concreta de gestión de tareas (Jira, Azure Boards, Trello, Linear, Asana...)." },
+            "repositorio": { "type": "string", "description": "Hosting de código (GitHub, GitLab, Bitbucket, Azure DevOps...)." },
+            "documentacion": { "type": "string", "description": "Dónde vive la documentación/conocimiento (Confluence, Notion, SharePoint, Google Drive...)." },
+            "comunicacion": { "type": "string", "description": "Colaboración/mensajería (Slack, Teams, Outlook, Gmail...)." },
+            "base_datos": { "type": "string", "description": "Bases de datos a consultar (PostgreSQL, MySQL, SQLite, MongoDB, Snowflake...)." },
+            "observabilidad": { "type": "string", "description": "Monitoreo/logs (Datadog, Sentry, CloudWatch, Grafana...)." },
+            "nube": { "type": "string", "description": "Proveedor/servicios cloud (AWS, Azure, GCP; p. ej. AWS Docs, S3, Lambda)." },
+            "diseno": { "type": "string", "description": "Diseño/producto (Figma, PRDs...)." },
+            "crm": { "type": "string", "description": "CRM/negocio (Salesforce, HubSpot...)." },
+            "otros": { "type": "string", "description": "Otras integraciones a conectar vía MCP (texto libre)." },
+            "restricciones": { "type": "string", "description": "Restricciones de seguridad/acceso para los MCPs: redes, credenciales, mínimo privilegio, lo que NO se debe conectar." }
+          }
+        },
+        "organizacion": {
+          "type": "object",
+          "description": "Sección D (común).",
+          "additionalProperties": false,
+          "properties": {
+            "num_personas": { "type": "string" },
+            "num_equipos_paralelo": { "type": "string" },
+            "cultura_cambio": { "type": "string", "enum": ["abierta", "neutral", "resistente", ""] },
+            "resistencias": { "type": "string" },
+            "modalidad": { "type": "string", "enum": ["1a1", "grupal", "hibrido", ""] },
+            "tamano_grupo": { "type": "string" },
+            "autonomia_agentes": { "type": "string", "description": "Solo Quick." }
+          }
+        },
+        "objetivos": {
+          "type": "object",
+          "description": "Sección E (común).",
+          "additionalProperties": false,
+          "properties": {
+            "objetivos": { "type": "string" },
+            "metricas_exito": { "type": "string" },
+            "timeline": { "type": "string" },
+            "duracion": { "type": "string" },
+            "plan_producto": { "type": "string", "description": "Tier de licencias (Kiro) o plan Quick." },
+            "comentarios": { "type": "string" }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,81 @@
+{
+  "esquema_version": "1.0",
+  "tema": "kiro",
+  "generado_en": "2026-10-16T12:00:00.000Z",
+  "empresa": "Empresa Demo Kiro",
+  "training_path": {
+    "nivel": "builder",
+    "etiqueta": "Builder — AI-DLC + MCP + Proyecto Real",
+    "puntaje_experticia": 78,
+    "ajustado_por_usuario": false
+  },
+  "contacto": {
+    "fecha": "2026-10-16",
+    "perfil_tecnico": "Ana López — Líder de desarrollo",
+    "perfil_negocio": "Jorge García — Gerente de operación",
+    "champion": "Ana López — Líder de desarrollo",
+    "proyecto": "Plataforma de ciclo de vida de datos"
+  },
+  "secciones": {
+    "experticia": {
+      "tiempo_usando_ia": "mas_1_ano",
+      "nivel_prompting": "4",
+      "nivel_agentico": "3",
+      "ha_creado_artefactos": "alguno",
+      "herramientas_ia_actuales": "GitHub Copilot, Claude Code",
+      "experiencia_previa": "Experiencia positiva con Copilot y ChatGPT durante el último año."
+    },
+    "contexto_tecnico": {
+      "stack": "Python, procesamiento de datos, AWS (multicloud)",
+      "arquitectura": "Microservicios",
+      "repositorios_ci_cd": "GitHub, con disponibilidad a adoptar CI/CD",
+      "usa_git_fluido": "fluido",
+      "tipo_proyecto": "mixto",
+      "disenos_specs": "Documentación en GitHub",
+      "prefiere_estructura": "mixto",
+      "integraciones": "Jira para planeación; herramienta de documentación por definir",
+      "trabaja_sobre_aws": "si",
+      "acceso_aws": "Sí, acceso completo",
+      "tiene_tests": "algunos"
+    },
+    "casos_uso": {
+      "casos": [
+        { "proceso": "Documentación técnica", "dolor": "Consume mucho tiempo manual", "frecuencia": "Diaria", "prioridad": "Alta", "capacidad": "" },
+        { "proceso": "QA / testing", "dolor": "Cobertura baja y lenta", "frecuencia": "Por sprint", "prioridad": "Alta", "capacidad": "" },
+        { "proceso": "Configuración repetitiva", "dolor": "Tareas manuales propensas a error", "frecuencia": "Semanal", "prioridad": "Media", "capacidad": "" }
+      ],
+      "piloto_mvp": "Automatizar generación de documentación del pipeline de datos"
+    },
+    "integraciones_mcp": {
+      "categorias": "gestion_tareas, repositorio, nube",
+      "gestion_tareas": "Jira",
+      "repositorio": "GitHub",
+      "documentacion": "",
+      "comunicacion": "",
+      "base_datos": "PostgreSQL",
+      "observabilidad": "",
+      "nube": "AWS (Docs, S3, Lambda)",
+      "diseno": "",
+      "crm": "",
+      "otros": "",
+      "restricciones": "Credenciales de solo lectura para Jira y la base de datos; no conectar producción."
+    },
+    "organizacion": {
+      "num_personas": "1 equipo: 4 backend, 2 data engineers, 1 QA",
+      "num_equipos_paralelo": "Un solo equipo",
+      "cultura_cambio": "abierta",
+      "resistencias": "Curva de aprendizaje inicial",
+      "modalidad": "grupal",
+      "tamano_grupo": "7 personas",
+      "autonomia_agentes": ""
+    },
+    "objetivos": {
+      "objetivos": "Reducir tiempo de desarrollo y validar adopción permanente de Kiro",
+      "metricas_exito": "Comparación de tiempos Kiro vs. tradicional, calidad de código",
+      "timeline": "Lanzamiento interno en Q1",
+      "duracion": "6-7 semanas (programa estándar)",
+      "plan_producto": "Pro+ $40",
+      "comentarios": "El liderazgo espera un caso demostrable al cierre del programa."
+    }
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "diagnostico-adopcion",
+  "version": "1.0.0",
+  "description": "Formularios HTML de diagnóstico de adopción (Kiro y Amazon Quick Suite) con interfaz estilizada (paleta eTribe). Capturan el cuestionario estructurado en el origen, derivan automáticamente el training path según la experticia del cliente, y exportan un JSON (fuente de verdad) y un Markdown compatible con el generador de planes de adopción. Incluye el esquema JSON (contrato con el generador) y una skill de instalación. El Power NO trae servidor MCP propio.",
+  "author": {
+    "name": "eTribe"
+  },
+  "keywords": [
+    "diagnostico",
+    "cuestionario",
+    "adopcion",
+    "kiro",
+    "quick-suite",
+    "training-path",
+    "formulario"
+  ],
+  "license": "MIT"
+}

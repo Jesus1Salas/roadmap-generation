@@ -1,0 +1,584 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Cuestionario de Diagnóstico — Amazon Quick Suite</title>
+<link rel="stylesheet" href="assets/estilo.css">
+</head>
+<body>
+
+<nav class="nav"><div class="wrap">
+  <div class="brand">ETRIBE <b>|</b> DIAGNÓSTICO DE ADOPCIÓN</div>
+  <span class="theme-pill">🧠 Amazon Quick</span>
+</div></nav>
+
+<header class="hero"><div class="wrap">
+  <div class="kicker">Adopción de Amazon Quick Suite</div>
+  <h1>Cuestionario de <span>Diagnóstico</span></h1>
+  <p class="lede">Nos permite entender cómo trabaja su equipo hoy antes de diseñar el programa de adopción de Amazon Quick como asistente de IA agéntica para el negocio.</p>
+  <p class="meta-note">Tiempo estimado: 20–30 min · Para perfiles de negocio, analistas y operación · Sus respuestas se guardan automáticamente en este navegador.</p>
+</div></header>
+
+<div class="progress"><div class="wrap">
+  <div class="track"><i id="bar-fill"></i></div>
+  <div class="count" id="count">0% <small>completado</small></div>
+</div></div>
+
+<main><div class="wrap">
+<form id="form" autocomplete="off">
+
+  <!-- DATOS DE CONTACTO -->
+  <section class="apartado">
+    <div class="apartado-head">
+      <div class="marker"><span class="num">00</span><span class="kicker">Datos de contacto</span></div>
+      <h2>¿Quién llena esto?</h2>
+    </div>
+    <div class="field" id="field-empresa">
+      <label for="empresa">Empresa / Organización <span class="req">*</span></label>
+      <input type="text" id="empresa" name="empresa" placeholder="Nombre de la empresa">
+      <span class="error-msg">Este campo es obligatorio.</span>
+    </div>
+    <div class="field">
+      <label for="fecha">Fecha de llenado</label>
+      <input type="date" id="fecha" name="fecha">
+    </div>
+    <div class="field">
+      <label for="perfil_tecnico">Nombre y rol — Perfil técnico / IT</label>
+      <input type="text" id="perfil_tecnico" name="perfil_tecnico" placeholder="Ej. Ana López — Líder de IT">
+    </div>
+    <div class="field">
+      <label for="perfil_negocio">Nombre y rol — Perfil de negocio / sponsor</label>
+      <input type="text" id="perfil_negocio" name="perfil_negocio" placeholder="Ej. Jorge García — Gerente de operación">
+    </div>
+    <div class="field">
+      <label for="proyecto">Área(s) sobre la(s) que se aplicaría Quick</label>
+      <input type="text" id="proyecto" name="proyecto" placeholder="Ej. Operaciones, Marketing, Finanzas">
+    </div>
+  </section>
+
+  <!-- TARJETA TRAINING PATH -->
+  <div class="tp-card">
+    <div class="kicker">Ruta recomendada</div>
+    <h3 id="tp-nombre">Productividad — Tu Primer Compañero AI</h3>
+    <p class="tp-sub" id="tp-desc">Se calcula según su experticia y objetivo. Responda el apartado de experticia para afinarla.</p>
+    <div class="tp-override">
+      <label for="tp-override">¿Prefiere fijar la ruta manualmente?</label>
+      <select id="tp-override" name="tp_override">
+        <option value="">Automática (recomendado)</option>
+        <option value="productividad">Productividad — Tu Primer Compañero AI</option>
+        <option value="analitica_automatizacion">Analítica de Datos + Automatización</option>
+        <option value="enterprise">Enterprise — Plataforma AI Organizacional</option>
+      </select>
+    </div>
+  </div>
+
+  <!-- EXPERTICIA -->
+  <section class="apartado">
+    <div class="apartado-head">
+      <div class="marker"><span class="num">01</span><span class="kicker">Experticia y objetivo</span></div>
+      <h2>¿Qué tan familiarizados están con IA y qué buscan?</h2>
+      <p class="desc">Esto define la profundidad y la ruta del programa.</p>
+    </div>
+
+    <div class="field">
+      <div class="q-label"><span class="q-num">1.</span> ¿La audiencia que adoptará Quick es...?</div>
+      <div class="options inline">
+        <label class="opt"><input type="radio" name="audiencia" value="negocio"><span class="opt-text">De negocio / operación</span></label>
+        <label class="opt"><input type="radio" name="audiencia" value="mixta"><span class="opt-text">Mixta</span></label>
+        <label class="opt"><input type="radio" name="audiencia" value="tecnica"><span class="opt-text">Técnica</span></label>
+      </div>
+    </div>
+
+    <div class="field">
+      <div class="q-label"><span class="q-num">2.</span> ¿Qué quieren principalmente de Quick?</div>
+      <div class="options">
+        <label class="opt"><input type="radio" name="objetivo_principal" value="productividad"><span class="opt-text">Productividad personal<small>análisis de docs, redacción, búsqueda, agente personal</small></span></label>
+        <label class="opt"><input type="radio" name="objetivo_principal" value="analitica_automatizacion"><span class="opt-text">Análisis de datos y automatización<small>dashboards, flows, conectores, agentes custom</small></span></label>
+        <label class="opt"><input type="radio" name="objetivo_principal" value="plataforma_org"><span class="opt-text">Plataforma organizacional con governance<small>múltiples agentes, apps, skills, permisos por rol</small></span></label>
+      </div>
+    </div>
+
+    <div class="field">
+      <div class="q-label"><span class="q-num">3.</span> ¿Cuánto tiempo llevan usando herramientas de IA generativa?</div>
+      <div class="options inline">
+        <label class="opt"><input type="radio" name="tiempo_usando_ia" value="nunca"><span class="opt-text">Nunca</span></label>
+        <label class="opt"><input type="radio" name="tiempo_usando_ia" value="menos_3_meses"><span class="opt-text">&lt; 3 meses</span></label>
+        <label class="opt"><input type="radio" name="tiempo_usando_ia" value="3_a_12_meses"><span class="opt-text">3–12 meses</span></label>
+        <label class="opt"><input type="radio" name="tiempo_usando_ia" value="mas_1_ano"><span class="opt-text">+ 1 año</span></label>
+      </div>
+    </div>
+
+    <div class="field">
+      <div class="q-label"><span class="q-num">4.</span> En IA agéntica (agentes, spaces, flows), ¿cómo se autoevalúan? <span class="hint">(1 = sin experiencia · 5 = uso avanzado)</span></div>
+      <div class="scale">
+        <label class="opt"><input type="radio" name="nivel_agentico" value="1"><span class="opt-text">1</span></label>
+        <label class="opt"><input type="radio" name="nivel_agentico" value="2"><span class="opt-text">2</span></label>
+        <label class="opt"><input type="radio" name="nivel_agentico" value="3"><span class="opt-text">3</span></label>
+        <label class="opt"><input type="radio" name="nivel_agentico" value="4"><span class="opt-text">4</span></label>
+        <label class="opt"><input type="radio" name="nivel_agentico" value="5"><span class="opt-text">5</span></label>
+      </div>
+    </div>
+
+    <div class="field">
+      <div class="q-label"><span class="q-num">5.</span> ¿Qué tanto manejan datos (CSV / Excel / BI) hoy?</div>
+      <div class="options inline">
+        <label class="opt"><input type="radio" name="manejo_datos" value="nada"><span class="opt-text">Nada</span></label>
+        <label class="opt"><input type="radio" name="manejo_datos" value="ocasional"><span class="opt-text">Ocasional</span></label>
+        <label class="opt"><input type="radio" name="manejo_datos" value="intensivo"><span class="opt-text">Es su trabajo</span></label>
+      </div>
+    </div>
+
+    <div class="field">
+      <label for="herramientas_ia_actuales"><span class="q-num">6.</span> ¿Qué herramienta de IA generativa usan hoy?</label>
+      <input type="text" id="herramientas_ia_actuales" name="herramientas_ia_actuales" placeholder="Ej. ChatGPT, Copilot, Gemini, ninguna">
+    </div>
+
+    <div class="field">
+      <label for="experiencia_previa"><span class="q-num">7.</span> ¿Alguna experiencia previa con IA, RPA, chatbots o BI?</label>
+      <textarea id="experiencia_previa" name="experiencia_previa" placeholder="Cuéntenos brevemente"></textarea>
+    </div>
+  </section>
+
+  <!-- CONTEXTO DE NEGOCIO -->
+  <section class="apartado">
+    <div class="apartado-head">
+      <div class="marker"><span class="num">02</span><span class="kicker">Contexto de negocio</span></div>
+      <h2>¿Cómo trabaja su equipo hoy?</h2>
+    </div>
+
+    <div class="field">
+      <label for="areas"><span class="q-num">8.</span> ¿Qué áreas o departamentos participarían?</label>
+      <textarea id="areas" name="areas" placeholder="Ej. Operaciones, Marketing, Atención a clientes"></textarea>
+    </div>
+
+    <div class="field">
+      <div class="q-label"><span class="q-num">9.</span> ¿Qué herramientas de colaboración usan?</div>
+      <div class="options inline">
+        <label class="opt"><input type="checkbox" name="herramientas_colaboracion" value="Slack"><span class="opt-text">Slack</span></label>
+        <label class="opt"><input type="checkbox" name="herramientas_colaboracion" value="Microsoft Teams"><span class="opt-text">Teams</span></label>
+        <label class="opt"><input type="checkbox" name="herramientas_colaboracion" value="Outlook"><span class="opt-text">Outlook</span></label>
+        <label class="opt"><input type="checkbox" name="herramientas_colaboracion" value="Google Workspace"><span class="opt-text">Google Workspace</span></label>
+        <label class="opt"><input type="checkbox" name="herramientas_colaboracion" value="Otro"><span class="opt-text">Otro</span></label>
+      </div>
+    </div>
+
+    <div class="field">
+      <label for="conocimiento_org"><span class="q-num">10.</span> ¿Dónde vive hoy el conocimiento de la organización?</label>
+      <textarea id="conocimiento_org" name="conocimiento_org" placeholder="Ej. Confluence, SharePoint, Google Drive, wikis, documentos sueltos"></textarea>
+    </div>
+
+    <div class="field">
+      <label for="apps_negocio"><span class="q-num">11.</span> ¿Qué aplicaciones de negocio son críticas?</label>
+      <textarea id="apps_negocio" name="apps_negocio" placeholder="Ej. Jira, Salesforce, SAP, HubSpot"></textarea>
+    </div>
+
+    <div class="field">
+      <label for="procesos_manuales"><span class="q-num">12.</span> ¿Qué procesos son hoy manuales o repetitivos?</label>
+      <textarea id="procesos_manuales" name="procesos_manuales" placeholder="Ej. Reportes semanales, respuestas a correos, consolidar datos de varias fuentes"></textarea>
+    </div>
+
+    <div class="field">
+      <label for="fuentes_datos"><span class="q-num">13.</span> ¿Qué fuentes de datos querrían conectar a Quick?</label>
+      <textarea id="fuentes_datos" name="fuentes_datos" placeholder="Ej. Base de datos de ventas, Excel de inventario, API interna"></textarea>
+    </div>
+
+    <div class="field">
+      <label for="seguridad_compliance"><span class="q-num">14.</span> ¿Hay requisitos de seguridad, privacidad o compliance?</label>
+      <textarea id="seguridad_compliance" name="seguridad_compliance" placeholder="Ej. Datos personales, políticas de acceso por rol, regulación del sector"></textarea>
+    </div>
+
+    <div class="field">
+      <div class="q-label"><span class="q-num">15.</span> ¿Requieren apps internas sin código (Quick Apps) o Skills reutilizables?</div>
+      <div class="options inline">
+        <label class="opt"><input type="radio" name="requiere_apps_sin_codigo" value="si"><span class="opt-text">Sí</span></label>
+        <label class="opt"><input type="radio" name="requiere_apps_sin_codigo" value="no"><span class="opt-text">No</span></label>
+        <label class="opt"><input type="radio" name="requiere_apps_sin_codigo" value="no_se"><span class="opt-text">No sé</span></label>
+      </div>
+    </div>
+
+    <div class="field">
+      <label for="acceso_aws"><span class="q-num">16.</span> ¿Tienen cuenta AWS / IAM Identity Center para aprovisionar Quick?</label>
+      <input type="text" id="acceso_aws" name="acceso_aws" placeholder="Ej. Sí, con IAM Identity Center / registro individual / no sé">
+    </div>
+
+    <div class="field">
+      <div class="q-label"><span class="q-num">17.</span> ¿El equipo incluye equipos Linux? <span class="hint">(Quick Desktop existe solo para Windows/macOS; en Linux se usa la app web)</span></div>
+      <div class="options inline">
+        <label class="opt"><input type="radio" name="incluye_linux" value="si"><span class="opt-text">Sí</span></label>
+        <label class="opt"><input type="radio" name="incluye_linux" value="no"><span class="opt-text">No</span></label>
+      </div>
+    </div>
+  </section>
+
+  <!-- CASOS DE USO -->
+  <section class="apartado">
+    <div class="apartado-head">
+      <div class="marker"><span class="num">03</span><span class="kicker">Casos de uso candidatos</span></div>
+      <h2>¿Dónde creen que Quick aporta valor?</h2>
+      <p class="desc">Enumere entre 3 y 5 procesos o tareas. Las sesiones se diseñan alrededor de estos casos.</p>
+    </div>
+    <div class="casos-tabla" id="casos-tabla"></div>
+    <button type="button" class="btn-add" id="btn-add-caso" style="margin-top:12px">+ Agregar caso</button>
+
+    <div class="field" style="margin-top:20px">
+      <label for="piloto_mvp"><span class="q-num">18.</span> De los anteriores, ¿cuál elegirían como piloto o MVP?</label>
+      <textarea id="piloto_mvp" name="piloto_mvp" placeholder="Idealmente algo acotado, medible y con impacto visible"></textarea>
+    </div>
+  </section>
+
+  <!-- INTEGRACIONES / MCP -->
+  <section class="apartado">
+    <div class="apartado-head">
+      <div class="marker"><span class="num">3b</span><span class="kicker">Integraciones y conectores</span></div>
+      <h2>¿Qué herramientas quieren conectar a Quick?</h2>
+      <p class="desc">Esto focaliza la configuración de conectores/MCPs: solo documentamos lo que de verdad necesitan. Marca las categorías y especifica la herramienta concreta.</p>
+    </div>
+
+    <div class="field">
+      <div class="q-label"><span class="q-num">M.</span> Categorías a conectar</div>
+      <div class="options inline">
+        <label class="opt"><input type="checkbox" name="mcp_categorias" value="gestion_tareas"><span class="opt-text">Gestión de tareas</span></label>
+        <label class="opt"><input type="checkbox" name="mcp_categorias" value="documentacion"><span class="opt-text">Documentación</span></label>
+        <label class="opt"><input type="checkbox" name="mcp_categorias" value="comunicacion"><span class="opt-text">Comunicación</span></label>
+        <label class="opt"><input type="checkbox" name="mcp_categorias" value="base_datos"><span class="opt-text">Base de datos</span></label>
+        <label class="opt"><input type="checkbox" name="mcp_categorias" value="nube"><span class="opt-text">Nube</span></label>
+        <label class="opt"><input type="checkbox" name="mcp_categorias" value="crm"><span class="opt-text">CRM</span></label>
+        <label class="opt"><input type="checkbox" name="mcp_categorias" value="otro"><span class="opt-text">Otro</span></label>
+      </div>
+      <span class="hint">Especifica abajo solo las que marcaste. Deja en blanco lo que no aplique.</span>
+    </div>
+
+    <div class="field">
+      <label for="mcp_gestion_tareas">Gestión de tareas — ¿cuál?</label>
+      <input type="text" id="mcp_gestion_tareas" name="mcp_gestion_tareas" placeholder="Ej. Jira, Asana, Trello, Monday">
+    </div>
+    <div class="field">
+      <label for="mcp_documentacion">Documentación / conocimiento — ¿dónde vive?</label>
+      <input type="text" id="mcp_documentacion" name="mcp_documentacion" placeholder="Ej. Confluence, Notion, SharePoint, Google Drive">
+    </div>
+    <div class="field">
+      <label for="mcp_comunicacion">Comunicación — ¿cuál?</label>
+      <input type="text" id="mcp_comunicacion" name="mcp_comunicacion" placeholder="Ej. Slack, Teams, Outlook, Gmail">
+    </div>
+    <div class="field">
+      <label for="mcp_base_datos">Base de datos / fuentes de datos — ¿cuál?</label>
+      <input type="text" id="mcp_base_datos" name="mcp_base_datos" placeholder="Ej. PostgreSQL, MySQL, Snowflake, Excel/CSV">
+    </div>
+    <div class="field">
+      <label for="mcp_nube">Nube / servicios — ¿cuál?</label>
+      <input type="text" id="mcp_nube" name="mcp_nube" placeholder="Ej. AWS, Azure, GCP">
+    </div>
+    <div class="field">
+      <label for="mcp_crm">CRM / negocio — ¿cuál?</label>
+      <input type="text" id="mcp_crm" name="mcp_crm" placeholder="Ej. Salesforce, HubSpot">
+    </div>
+    <div class="field">
+      <label for="mcp_otros">Otras integraciones a conectar</label>
+      <input type="text" id="mcp_otros" name="mcp_otros" placeholder="Texto libre">
+    </div>
+    <div class="field">
+      <label for="mcp_restricciones">Restricciones de seguridad/acceso para los conectores</label>
+      <textarea id="mcp_restricciones" name="mcp_restricciones" placeholder="Ej. mínimo privilegio, datos sensibles, qué NO conectar"></textarea>
+    </div>
+  </section>
+
+  <!-- ORGANIZACIÓN -->
+  <section class="apartado">
+    <div class="apartado-head">
+      <div class="marker"><span class="num">04</span><span class="kicker">Organización y gobernanza</span></div>
+      <h2>¿Quiénes adoptan Quick?</h2>
+    </div>
+
+    <div class="field">
+      <label for="num_personas"><span class="q-num">19.</span> ¿Cuántas personas y de qué áreas adoptarían Quick?</label>
+      <textarea id="num_personas" name="num_personas" placeholder="Ej. 12 personas de Operaciones y Marketing"></textarea>
+    </div>
+
+    <div class="field">
+      <label for="champion"><span class="q-num">20.</span> ¿Quién sería el champion que lidera la adopción?</label>
+      <input type="text" id="champion" name="champion" placeholder="Nombre y rol">
+    </div>
+
+    <div class="field">
+      <div class="q-label"><span class="q-num">21.</span> ¿Qué nivel de autonomía quieren dar a los agentes?</div>
+      <div class="options">
+        <label class="opt"><input type="radio" name="autonomia_agentes" value="Aprobación paso a paso"><span class="opt-text">Aprobación paso a paso</span></label>
+        <label class="opt"><input type="radio" name="autonomia_agentes" value="Autonomía media"><span class="opt-text">Autonomía media</span></label>
+        <label class="opt"><input type="radio" name="autonomia_agentes" value="Autonomía amplia"><span class="opt-text">Autonomía amplia</span></label>
+        <label class="opt"><input type="radio" name="autonomia_agentes" value="Aún no definido"><span class="opt-text">Aún no definido</span></label>
+      </div>
+    </div>
+
+    <div class="field">
+      <div class="q-label"><span class="q-num">22.</span> ¿Cómo describiría la cultura de cambio del equipo?</div>
+      <div class="options">
+        <label class="opt"><input type="radio" name="cultura_cambio" value="abierta"><span class="opt-text">Muy abierta / entusiasta</span></label>
+        <label class="opt"><input type="radio" name="cultura_cambio" value="neutral"><span class="opt-text">Neutral, se adapta con acompañamiento</span></label>
+        <label class="opt"><input type="radio" name="cultura_cambio" value="resistente"><span class="opt-text">Resistente, requiere gestión del cambio</span></label>
+      </div>
+    </div>
+
+    <div class="field">
+      <label for="resistencias"><span class="q-num">23.</span> ¿Anticipan alguna resistencia o preocupación específica?</label>
+      <textarea id="resistencias" name="resistencias" placeholder="Seguridad de datos, privacidad, curva de aprendizaje..."></textarea>
+    </div>
+
+    <div class="field">
+      <div class="q-label"><span class="q-num">24.</span> ¿El programa involucra una o varias áreas en paralelo?</div>
+      <div class="options inline">
+        <label class="opt"><input type="radio" name="num_equipos_paralelo" value="Una sola área"><span class="opt-text">Una sola área</span></label>
+        <label class="opt"><input type="radio" name="num_equipos_paralelo" value="2-3 áreas"><span class="opt-text">2–3 áreas</span></label>
+        <label class="opt"><input type="radio" name="num_equipos_paralelo" value="4 o más áreas"><span class="opt-text">4 o más áreas</span></label>
+      </div>
+    </div>
+
+    <div class="field">
+      <div class="q-label"><span class="q-num">25.</span> Modalidad preferida</div>
+      <div class="options inline">
+        <label class="opt"><input type="radio" name="modalidad" value="1a1"><span class="opt-text">1:1 coaching</span></label>
+        <label class="opt"><input type="radio" name="modalidad" value="grupal"><span class="opt-text">Workshop grupal</span></label>
+        <label class="opt"><input type="radio" name="modalidad" value="hibrido"><span class="opt-text">Híbrido</span></label>
+      </div>
+    </div>
+
+    <div class="field">
+      <label for="tamano_grupo"><span class="q-num">26.</span> ¿Tamaño de grupo por sesión?</label>
+      <input type="text" id="tamano_grupo" name="tamano_grupo" placeholder="Ej. 15 personas">
+    </div>
+  </section>
+
+  <!-- OBJETIVOS -->
+  <section class="apartado">
+    <div class="apartado-head">
+      <div class="marker"><span class="num">05</span><span class="kicker">Objetivos y métricas de éxito</span></div>
+      <h2>¿Cómo luce el éxito?</h2>
+    </div>
+
+    <div class="field">
+      <label for="objetivos"><span class="q-num">27.</span> ¿Qué esperan lograr al final del programa?</label>
+      <textarea id="objetivos" name="objetivos" placeholder="Ej. reducir trabajo manual, acelerar reportes, escalar a más áreas"></textarea>
+    </div>
+
+    <div class="field">
+      <label for="metricas_exito"><span class="q-num">28.</span> ¿Cómo van a medir el éxito?</label>
+      <textarea id="metricas_exito" name="metricas_exito" placeholder="Ej. horas ahorradas, # de flows activos, adopción por área"></textarea>
+    </div>
+
+    <div class="field">
+      <label for="timeline"><span class="q-num">29.</span> ¿Existe fecha límite, evento o hito de negocio?</label>
+      <input type="text" id="timeline" name="timeline" placeholder="Ej. Cierre de trimestre, lanzamiento">
+    </div>
+
+    <div class="field">
+      <div class="q-label"><span class="q-num">30.</span> ¿Qué duración visualizan?</div>
+      <div class="options inline">
+        <label class="opt"><input type="radio" name="duracion" value="4-5 semanas"><span class="opt-text">4–5 semanas</span></label>
+        <label class="opt"><input type="radio" name="duracion" value="6-7 semanas"><span class="opt-text">6–7 semanas</span></label>
+        <label class="opt"><input type="radio" name="duracion" value="8+ semanas"><span class="opt-text">8+ semanas</span></label>
+      </div>
+    </div>
+
+    <div class="field">
+      <div class="q-label"><span class="q-num">31.</span> ¿Plan de producto previsto?</div>
+      <div class="options inline">
+        <label class="opt"><input type="radio" name="plan_producto" value="Free / Plus"><span class="opt-text">Free / Plus</span></label>
+        <label class="opt"><input type="radio" name="plan_producto" value="Pro"><span class="opt-text">Pro</span></label>
+        <label class="opt"><input type="radio" name="plan_producto" value="Enterprise"><span class="opt-text">Enterprise</span></label>
+      </div>
+    </div>
+
+    <div class="field">
+      <label for="comentarios"><span class="q-num">32.</span> Comentarios adicionales</label>
+      <textarea id="comentarios" name="comentarios" placeholder="Restricciones, expectativas del liderazgo..."></textarea>
+    </div>
+  </section>
+
+</form>
+</div></main>
+
+<div class="actions"><div class="wrap">
+  <span class="status" id="save-status">Guardado automático <b>activo</b></span>
+  <button class="btn ghost" id="btn-reset" type="button">Borrar respuestas</button>
+  <button class="btn" id="btn-md" type="button">⬇ Markdown</button>
+  <button class="btn primary" id="btn-json" type="button">⬇ Descargar JSON</button>
+</div></div>
+
+<footer><div class="wrap">
+  <div class="site">WWW.ETRIBE.COM.MX</div>
+  <p>Cuestionario de diagnóstico para el programa de adopción de Amazon Quick Suite. Sus respuestas no salen de este navegador hasta que descarga el archivo.</p>
+</div></footer>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+window.DIAGNOSTICO_CONFIG = {
+  tema: "quick_suite",
+
+  pesosExperticia: {
+    objetivo_principal: { productividad: 10, analitica_automatizacion: 55, plataforma_org: 100 },
+    audiencia:          { negocio: 10, mixta: 55, tecnica: 100 },
+    tiempo_usando_ia:   { nunca: 0, menos_3_meses: 30, "3_a_12_meses": 65, mas_1_ano: 100 },
+    nivel_agentico:     { "1": 0, "2": 25, "3": 50, "4": 75, "5": 100 },
+    manejo_datos:       { nada: 0, ocasional: 50, intensivo: 100 }
+  },
+
+  niveles: [
+    { id: "productividad", max: 33, etiqueta: "Productividad — Tu Primer Compañero AI",
+      desc: "Usuarios no-técnicos y operación. Conversación natural, análisis de documentos, búsqueda, generación de reportes y un agente personal." },
+    { id: "analitica_automatizacion", max: 66, etiqueta: "Analítica de Datos + Automatización",
+      desc: "Power users y analistas. Datos y dashboards, Knowledge Spaces, agentes avanzados, Flows y conectores corporativos sobre un caso real." },
+    { id: "enterprise", max: 100, etiqueta: "Enterprise — Plataforma AI Organizacional",
+      desc: "Equipos 10+. Múltiples agentes, Quick Apps, Skills, governance y permisos por rol, adopción y ROI, go-live." }
+  ],
+
+  construirSecciones: function (campo, casos) {
+    return {
+      experticia: {
+        tiempo_usando_ia: campo("tiempo_usando_ia"),
+        nivel_prompting: "",
+        nivel_agentico: campo("nivel_agentico"),
+        ha_creado_artefactos: "",
+        herramientas_ia_actuales: campo("herramientas_ia_actuales"),
+        experiencia_previa: campo("experiencia_previa")
+      },
+      contexto_negocio: {
+        areas: campo("areas"),
+        audiencia: campo("audiencia"),
+        objetivo_principal: campo("objetivo_principal"),
+        herramientas_colaboracion: campo("herramientas_colaboracion"),
+        conocimiento_org: campo("conocimiento_org"),
+        apps_negocio: campo("apps_negocio"),
+        procesos_manuales: campo("procesos_manuales"),
+        manejo_datos: campo("manejo_datos"),
+        fuentes_datos: campo("fuentes_datos"),
+        seguridad_compliance: campo("seguridad_compliance"),
+        requiere_apps_sin_codigo: campo("requiere_apps_sin_codigo"),
+        iniciativas_previas: campo("experiencia_previa"),
+        acceso_aws: campo("acceso_aws"),
+        incluye_linux: campo("incluye_linux")
+      },
+      casos_uso: {
+        casos: casos.map(function (c) {
+          return { proceso: c.proceso, dolor: c.dolor, frecuencia: c.frecuencia, prioridad: c.prioridad, capacidad: c.capacidad || "" };
+        }),
+        piloto_mvp: campo("piloto_mvp")
+      },
+      integraciones_mcp: {
+        categorias: campo("mcp_categorias"),
+        gestion_tareas: campo("mcp_gestion_tareas"),
+        repositorio: "",
+        documentacion: campo("mcp_documentacion"),
+        comunicacion: campo("mcp_comunicacion"),
+        base_datos: campo("mcp_base_datos"),
+        observabilidad: "",
+        nube: campo("mcp_nube"),
+        diseno: "",
+        crm: campo("mcp_crm"),
+        otros: campo("mcp_otros"),
+        restricciones: campo("mcp_restricciones")
+      },
+      organizacion: {
+        num_personas: campo("num_personas"),
+        num_equipos_paralelo: campo("num_equipos_paralelo"),
+        cultura_cambio: campo("cultura_cambio"),
+        resistencias: campo("resistencias"),
+        modalidad: campo("modalidad"),
+        tamano_grupo: campo("tamano_grupo"),
+        autonomia_agentes: campo("autonomia_agentes")
+      },
+      objetivos: {
+        objetivos: campo("objetivos"),
+        metricas_exito: campo("metricas_exito"),
+        timeline: campo("timeline"),
+        duracion: campo("duracion"),
+        plan_producto: campo("plan_producto"),
+        comentarios: campo("comentarios")
+      }
+    };
+  },
+
+  aMarkdown: function (d) {
+    var s = d.secciones, c = d.contacto, b = s.contexto_negocio;
+    var L = [];
+    L.push("# CUESTIONARIO DE DIAGNÓSTICO");
+    L.push("## Adopción de Amazon Quick Suite");
+    L.push("");
+    L.push("## Datos de contacto");
+    L.push("");
+    L.push("| Empresa / Organización | " + (d.empresa || "") + " |");
+    L.push("| :---- | :---- |");
+    L.push("| Fecha de llenado | " + (c.fecha || "") + " |");
+    L.push("| Nombre y rol — Perfil técnico / IT | " + (c.perfil_tecnico || "") + " |");
+    L.push("| Nombre y rol — Perfil de negocio / sponsor | " + (c.perfil_negocio || "") + " |");
+    L.push("| Área(s) sobre la(s) que se aplicaría Quick | " + (c.proyecto || "") + " |");
+    L.push("");
+    L.push("> Ruta de training path recomendada: **" + (d.training_path.etiqueta || "") + "** (puntaje experticia: " + d.training_path.puntaje_experticia + "/100).");
+    L.push("");
+    L.push("## Sección A — Contexto de negocio");
+    L.push("");
+    L.push("> 1. ¿Qué áreas o departamentos participarían?  \n>    " + (b.areas || ""));
+    L.push("> 2. ¿Qué herramientas de colaboración usan?  \n>    " + (b.herramientas_colaboracion || ""));
+    L.push("> 3. ¿Dónde vive hoy el conocimiento de la organización?  \n>    " + (b.conocimiento_org || ""));
+    L.push("> 4. ¿Qué aplicaciones de negocio son críticas?  \n>    " + (b.apps_negocio || ""));
+    L.push("> 5. ¿Qué procesos hoy son manuales o repetitivos?  \n>    " + (b.procesos_manuales || ""));
+    L.push("> 6. ¿Tienen cuenta AWS con IAM Identity Center?  \n>    " + (b.acceso_aws || ""));
+    L.push("");
+    L.push("## Sección B — Herramientas de IA y madurez actual");
+    L.push("");
+    L.push("> 7. ¿Qué herramienta de IA generativa usan hoy?  \n>    " + (s.experticia.herramientas_ia_actuales || ""));
+    L.push("> 8. En IA agéntica, ¿cómo se autoevalúan? (1-5)  \n>    " + (s.experticia.nivel_agentico || ""));
+    L.push("> 9. ¿Qué fuentes de datos querrían conectar?  \n>    " + (b.fuentes_datos || ""));
+    L.push("> 10. ¿Hay requisitos de seguridad, privacidad o compliance?  \n>    " + (b.seguridad_compliance || ""));
+    L.push("> 11. ¿Iniciativas de automatización previas?  \n>    " + (s.experticia.experiencia_previa || ""));
+    L.push("");
+    L.push("## Sección C — Casos de uso candidatos");
+    L.push("");
+    L.push("| Proceso / tarea actual | Dolor o cuello de botella | Frecuencia | Prioridad (Alta/Media/Baja) |");
+    L.push("| :---- | :---- | :---- | :---- |");
+    (s.casos_uso.casos || []).forEach(function (x) {
+      L.push("| " + (x.proceso || "") + " | " + (x.dolor || "") + " | " + (x.frecuencia || "") + " | " + (x.prioridad || "") + " |");
+    });
+    L.push("");
+    L.push("> 12. De los procesos anteriores, ¿cuál elegirían como piloto o MVP?  \n>    " + (s.casos_uso.piloto_mvp || ""));
+    L.push("> 13. ¿Requieren aplicaciones internas simples (Quick Apps)?  \n>    " + (b.requiere_apps_sin_codigo || ""));
+    L.push("");
+    var im = s.integraciones_mcp || {};
+    var imPares = [["Gestión de tareas", im.gestion_tareas], ["Documentación", im.documentacion],
+      ["Comunicación", im.comunicacion], ["Base de datos", im.base_datos],
+      ["Nube", im.nube], ["CRM", im.crm], ["Otros", im.otros]]
+      .filter(function (p) { return p[1]; });
+    if (imPares.length || im.restricciones) {
+      L.push("## Integraciones y conectores a conectar");
+      L.push("");
+      imPares.forEach(function (p) { L.push("- **" + p[0] + ":** " + p[1]); });
+      if (im.restricciones) L.push("- **Restricciones de acceso:** " + im.restricciones);
+      L.push("");
+    }
+    L.push("## Sección D — Organización y gobernanza");
+    L.push("");
+    L.push("> 14. ¿Cuántas personas y qué áreas?  \n>    " + (s.organizacion.num_personas || ""));
+    L.push("> 15. ¿Quién sería el champion?  \n>    " + (c.champion || ""));
+    L.push("> 16. Nivel de autonomía de agentes  \n>    " + (s.organizacion.autonomia_agentes || ""));
+    L.push("> 17. Cultura de cambio  \n>    " + (s.organizacion.cultura_cambio || ""));
+    L.push("> 18. ¿Resistencia o preocupación específica?  \n>    " + (s.organizacion.resistencias || ""));
+    L.push("> 19. ¿Una o varias áreas en paralelo?  \n>    " + (s.organizacion.num_equipos_paralelo || ""));
+    L.push("");
+    L.push("## Sección E — Objetivos y métricas de éxito");
+    L.push("");
+    L.push("> 20. ¿Qué esperan lograr al final?  \n>    " + (s.objetivos.objetivos || ""));
+    L.push("> 21. ¿Cómo van a medir el éxito?  \n>    " + (s.objetivos.metricas_exito || ""));
+    L.push("> 22. ¿Fecha límite, evento o hito?  \n>    " + (s.objetivos.timeline || ""));
+    L.push("> 23. Plan de producto  \n>    " + (s.objetivos.plan_producto || ""));
+    L.push("");
+    L.push("## Comentarios adicionales");
+    L.push("");
+    L.push(s.objetivos.comentarios || "");
+    L.push("");
+    return L.join("\n");
+  }
+};
+</script>
+<script src="assets/formulario.js"></script>
+</body>
+</html>

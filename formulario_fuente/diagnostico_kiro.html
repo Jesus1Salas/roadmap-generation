@@ -1,0 +1,605 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Cuestionario de Diagnóstico — Kiro</title>
+<link rel="stylesheet" href="assets/estilo.css">
+</head>
+<body>
+
+<nav class="nav"><div class="wrap">
+  <div class="brand">ETRIBE <b>|</b> DIAGNÓSTICO DE ADOPCIÓN</div>
+  <span class="theme-pill">⚡ Kiro</span>
+</div></nav>
+
+<header class="hero"><div class="wrap">
+  <div class="kicker">Adopción de Kiro · AI-DLC</div>
+  <h1>Cuestionario de <span>Diagnóstico</span></h1>
+  <p class="lede">Nos permite entender el punto de partida real de su equipo antes de diseñar el programa de adopción de Kiro. Con esta información construimos un roadmap a medida.</p>
+  <p class="meta-note">Tiempo estimado: 20–30 min · Ideal completarlo entre un perfil técnico y uno de negocio · Sus respuestas se guardan automáticamente en este navegador.</p>
+</div></header>
+
+<div class="progress"><div class="wrap">
+  <div class="track"><i id="bar-fill"></i></div>
+  <div class="count" id="count">0% <small>completado</small></div>
+</div></div>
+
+<main><div class="wrap">
+<form id="form" autocomplete="off">
+
+  <!-- DATOS DE CONTACTO -->
+  <section class="apartado">
+    <div class="apartado-head">
+      <div class="marker"><span class="num">00</span><span class="kicker">Datos de contacto</span></div>
+      <h2>¿Quién llena esto?</h2>
+    </div>
+    <div class="field" id="field-empresa">
+      <label for="empresa">Empresa / Organización <span class="req">*</span></label>
+      <input type="text" id="empresa" name="empresa" placeholder="Nombre de la empresa">
+      <span class="error-msg">Este campo es obligatorio.</span>
+    </div>
+    <div class="field">
+      <label for="fecha">Fecha de llenado</label>
+      <input type="date" id="fecha" name="fecha">
+    </div>
+    <div class="field">
+      <label for="perfil_tecnico">Nombre y rol — Perfil técnico / champion de desarrollo</label>
+      <input type="text" id="perfil_tecnico" name="perfil_tecnico" placeholder="Ej. Ana López — Líder de desarrollo">
+    </div>
+    <div class="field">
+      <label for="perfil_negocio">Nombre y rol — Perfil de negocio / sponsor</label>
+      <input type="text" id="perfil_negocio" name="perfil_negocio" placeholder="Ej. Jorge García — Gerente de operación">
+    </div>
+    <div class="field">
+      <label for="proyecto">Proyecto o producto sobre el que se aplicaría Kiro</label>
+      <input type="text" id="proyecto" name="proyecto" placeholder="Ej. Ciclo de vida de datos / plataforma X">
+    </div>
+  </section>
+
+  <!-- TARJETA TRAINING PATH -->
+  <div class="tp-card">
+    <div class="kicker">Ruta recomendada</div>
+    <h3 id="tp-nombre">Básico — Vibe Coding + AI Literacy</h3>
+    <p class="tp-sub" id="tp-desc">Se calcula según su experticia con herramientas de IA. Responda el apartado de experticia para afinarla.</p>
+    <div class="tp-override">
+      <label for="tp-override">¿Prefiere fijar la ruta manualmente?</label>
+      <select id="tp-override" name="tp_override">
+        <option value="">Automática (recomendado)</option>
+        <option value="basico">Básico — Vibe Coding + AI Literacy + Hooks</option>
+        <option value="basico_builder">Básico → Builder (híbrido)</option>
+        <option value="builder">Builder — AI-DLC + MCP + Proyecto Real</option>
+      </select>
+    </div>
+  </div>
+
+  <!-- EXPERTICIA -->
+  <section class="apartado">
+    <div class="apartado-head">
+      <div class="marker"><span class="num">01</span><span class="kicker">Experticia en IA</span></div>
+      <h2>¿Qué tan familiarizados están con IA para desarrollo?</h2>
+      <p class="desc">Esto define la profundidad y la ruta del programa. Sea honesto: no hay respuesta "correcta".</p>
+    </div>
+
+    <div class="field">
+      <div class="q-label"><span class="q-num">1.</span> ¿Cuánto tiempo lleva el equipo usando asistentes de IA para programar?</div>
+      <div class="options inline">
+        <label class="opt"><input type="radio" name="tiempo_usando_ia" value="nunca"><span class="opt-text">Nunca</span></label>
+        <label class="opt"><input type="radio" name="tiempo_usando_ia" value="menos_3_meses"><span class="opt-text">&lt; 3 meses</span></label>
+        <label class="opt"><input type="radio" name="tiempo_usando_ia" value="3_a_12_meses"><span class="opt-text">3–12 meses</span></label>
+        <label class="opt"><input type="radio" name="tiempo_usando_ia" value="mas_1_ano"><span class="opt-text">+ 1 año</span></label>
+      </div>
+    </div>
+
+    <div class="field">
+      <div class="q-label"><span class="q-num">2.</span> ¿El equipo usa Git y trabaja con ramas / PRs en su día a día?</div>
+      <div class="options inline">
+        <label class="opt"><input type="radio" name="usa_git_fluido" value="fluido"><span class="opt-text">Sí, con fluidez</span></label>
+        <label class="opt"><input type="radio" name="usa_git_fluido" value="basico"><span class="opt-text">Sí, lo básico</span></label>
+        <label class="opt"><input type="radio" name="usa_git_fluido" value="no"><span class="opt-text">No</span></label>
+      </div>
+    </div>
+
+    <div class="field">
+      <div class="q-label"><span class="q-num">3.</span> En prompt engineering, ¿cómo se autoevalúan? <span class="hint">(1 = sin experiencia · 5 = uso avanzado y cotidiano)</span></div>
+      <div class="scale">
+        <label class="opt"><input type="radio" name="nivel_prompting" value="1"><span class="opt-text">1</span></label>
+        <label class="opt"><input type="radio" name="nivel_prompting" value="2"><span class="opt-text">2</span></label>
+        <label class="opt"><input type="radio" name="nivel_prompting" value="3"><span class="opt-text">3</span></label>
+        <label class="opt"><input type="radio" name="nivel_prompting" value="4"><span class="opt-text">4</span></label>
+        <label class="opt"><input type="radio" name="nivel_prompting" value="5"><span class="opt-text">5</span></label>
+      </div>
+    </div>
+
+    <div class="field">
+      <div class="q-label"><span class="q-num">4.</span> En flujos agénticos (specs, hooks, steering), ¿cómo se autoevalúan? <span class="hint">(1–5)</span></div>
+      <div class="scale">
+        <label class="opt"><input type="radio" name="nivel_agentico" value="1"><span class="opt-text">1</span></label>
+        <label class="opt"><input type="radio" name="nivel_agentico" value="2"><span class="opt-text">2</span></label>
+        <label class="opt"><input type="radio" name="nivel_agentico" value="3"><span class="opt-text">3</span></label>
+        <label class="opt"><input type="radio" name="nivel_agentico" value="4"><span class="opt-text">4</span></label>
+        <label class="opt"><input type="radio" name="nivel_agentico" value="5"><span class="opt-text">5</span></label>
+      </div>
+    </div>
+
+    <div class="field">
+      <div class="q-label"><span class="q-num">5.</span> ¿Han escrito alguna vez un prompt de sistema, steering file, o configurado un agente / hook?</div>
+      <div class="options inline">
+        <label class="opt"><input type="radio" name="ha_creado_artefactos" value="varios"><span class="opt-text">Sí, varios</span></label>
+        <label class="opt"><input type="radio" name="ha_creado_artefactos" value="alguno"><span class="opt-text">Alguno</span></label>
+        <label class="opt"><input type="radio" name="ha_creado_artefactos" value="nunca"><span class="opt-text">Nunca</span></label>
+      </div>
+    </div>
+
+    <div class="field">
+      <label for="herramientas_ia_actuales"><span class="q-num">6.</span> ¿Qué herramientas de IA usa hoy el equipo para desarrollo?</label>
+      <input type="text" id="herramientas_ia_actuales" name="herramientas_ia_actuales" placeholder="Ej. GitHub Copilot, Claude Code, ChatGPT">
+    </div>
+
+    <div class="field">
+      <label for="experiencia_previa"><span class="q-num">7.</span> ¿Alguna experiencia previa —positiva o negativa— adoptando herramientas de IA?</label>
+      <textarea id="experiencia_previa" name="experiencia_previa" placeholder="Cuéntenos brevemente"></textarea>
+    </div>
+  </section>
+
+  <!-- CONTEXTO TÉCNICO -->
+  <section class="apartado">
+    <div class="apartado-head">
+      <div class="marker"><span class="num">02</span><span class="kicker">Contexto técnico y arquitectura</span></div>
+      <h2>¿Cómo es su entorno de desarrollo?</h2>
+      <p class="desc">A completar por el perfil técnico / champion.</p>
+    </div>
+
+    <div class="field">
+      <label for="stack"><span class="q-num">8.</span> ¿Cuál es el stack tecnológico principal del proyecto?</label>
+      <textarea id="stack" name="stack" placeholder="Lenguajes, frameworks (frontend/backend), base de datos, infraestructura (cloud, contenedores)"></textarea>
+    </div>
+
+    <div class="field">
+      <div class="q-label"><span class="q-num">9.</span> ¿Cómo describiría la arquitectura actual?</div>
+      <div class="options inline">
+        <label class="opt"><input type="radio" name="arquitectura" value="Monolito"><span class="opt-text">Monolito</span></label>
+        <label class="opt"><input type="radio" name="arquitectura" value="Monolito distribuido"><span class="opt-text">Monolito distribuido</span></label>
+        <label class="opt"><input type="radio" name="arquitectura" value="Microservicios"><span class="opt-text">Microservicios</span></label>
+        <label class="opt"><input type="radio" name="arquitectura" value="Serverless"><span class="opt-text">Serverless</span></label>
+      </div>
+    </div>
+
+    <div class="field">
+      <label for="repositorios_ci_cd"><span class="q-num">10.</span> ¿Dónde vive el código y cómo es el flujo de trabajo actual?</label>
+      <textarea id="repositorios_ci_cd" name="repositorios_ci_cd" placeholder="Repositorio(s), ramas, ambientes (dev/staging/prod), proceso de CI/CD si existe"></textarea>
+    </div>
+
+    <div class="field">
+      <div class="q-label"><span class="q-num">11.</span> ¿El proyecto es greenfield (nuevo) o brownfield (código existente/legacy)?</div>
+      <div class="options inline">
+        <label class="opt"><input type="radio" name="tipo_proyecto" value="greenfield"><span class="opt-text">Greenfield</span></label>
+        <label class="opt"><input type="radio" name="tipo_proyecto" value="brownfield"><span class="opt-text">Brownfield</span></label>
+        <label class="opt"><input type="radio" name="tipo_proyecto" value="mixto"><span class="opt-text">Mixto</span></label>
+      </div>
+    </div>
+
+    <div class="field">
+      <div class="q-label"><span class="q-num">12.</span> ¿Prefieren trabajar con specs/requisitos formales o prototipar directo?</div>
+      <div class="options inline">
+        <label class="opt"><input type="radio" name="prefiere_estructura" value="estructura"><span class="opt-text">Preferimos estructura</span></label>
+        <label class="opt"><input type="radio" name="prefiere_estructura" value="mixto"><span class="opt-text">Mixto</span></label>
+        <label class="opt"><input type="radio" name="prefiere_estructura" value="prototipar"><span class="opt-text">Preferimos prototipar</span></label>
+      </div>
+    </div>
+
+    <div class="field">
+      <label for="disenos_specs"><span class="q-num">13.</span> ¿Existen diseños o especificaciones ya definidas (Figma, PRDs, documentación)?</label>
+      <textarea id="disenos_specs" name="disenos_specs" placeholder="Describa qué existe y dónde vive"></textarea>
+    </div>
+
+    <div class="field">
+      <label for="integraciones"><span class="q-num">14.</span> ¿Qué integraciones o sistemas externos son críticos?</label>
+      <textarea id="integraciones" name="integraciones" placeholder="Ej. Jira para planeación, herramienta de documentación"></textarea>
+    </div>
+
+    <div class="field">
+      <div class="q-label"><span class="q-num">15.</span> ¿El equipo trabaja sobre AWS?</div>
+      <div class="options inline">
+        <label class="opt"><input type="radio" name="trabaja_sobre_aws" value="si"><span class="opt-text">Sí, activamente</span></label>
+        <label class="opt"><input type="radio" name="trabaja_sobre_aws" value="algo"><span class="opt-text">Algo</span></label>
+        <label class="opt"><input type="radio" name="trabaja_sobre_aws" value="no"><span class="opt-text">No</span></label>
+      </div>
+      <span class="hint">Si usan AWS (diagramas, IaC, CloudFormation/Terraform/CDK) se incluye el anexo de AWS MCP / Agent Toolkit.</span>
+    </div>
+
+    <div class="field">
+      <label for="acceso_aws"><span class="q-num">16.</span> ¿Tienen acceso administrativo a AWS / consola para aprovisionar licencias de Kiro?</label>
+      <input type="text" id="acceso_aws" name="acceso_aws" placeholder="Ej. Sí, acceso completo / parcial / no">
+    </div>
+
+    <div class="field">
+      <div class="q-label"><span class="q-num">17.</span> ¿Tienen tests automatizados hoy?</div>
+      <div class="options inline">
+        <label class="opt"><input type="radio" name="tiene_tests" value="buena"><span class="opt-text">Buena cobertura</span></label>
+        <label class="opt"><input type="radio" name="tiene_tests" value="algunos"><span class="opt-text">Algunos</span></label>
+        <label class="opt"><input type="radio" name="tiene_tests" value="casi_nada"><span class="opt-text">Casi nada</span></label>
+      </div>
+    </div>
+  </section>
+
+  <!-- CASOS DE USO -->
+  <section class="apartado">
+    <div class="apartado-head">
+      <div class="marker"><span class="num">03</span><span class="kicker">Casos de uso candidatos</span></div>
+      <h2>¿Dónde creen que Kiro aporta valor?</h2>
+      <p class="desc">Enumere entre 3 y 5 procesos o tareas. Las sesiones 3–6 se diseñan alrededor de estos casos.</p>
+    </div>
+    <div class="casos-tabla" id="casos-tabla"></div>
+    <button type="button" class="btn-add" id="btn-add-caso" style="margin-top:12px">+ Agregar caso</button>
+
+    <div class="field" style="margin-top:20px">
+      <label for="piloto_mvp"><span class="q-num">18.</span> De los anteriores, ¿cuál elegirían como piloto o MVP para las primeras semanas?</label>
+      <textarea id="piloto_mvp" name="piloto_mvp" placeholder="Idealmente algo acotado, medible y con impacto visible en poco tiempo"></textarea>
+    </div>
+  </section>
+
+  <!-- INTEGRACIONES / MCP -->
+  <section class="apartado">
+    <div class="apartado-head">
+      <div class="marker"><span class="num">3b</span><span class="kicker">Integraciones y MCPs</span></div>
+      <h2>¿Qué herramientas quieren conectar a Kiro?</h2>
+      <p class="desc">Esto focaliza la configuración de MCPs: solo documentamos los servidores que de verdad necesitan. Marca las categorías y especifica la herramienta concreta.</p>
+    </div>
+
+    <div class="field">
+      <div class="q-label"><span class="q-num">M.</span> Categorías a conectar</div>
+      <div class="options inline">
+        <label class="opt"><input type="checkbox" name="mcp_categorias" value="gestion_tareas"><span class="opt-text">Gestión de tareas</span></label>
+        <label class="opt"><input type="checkbox" name="mcp_categorias" value="repositorio"><span class="opt-text">Repositorio de código</span></label>
+        <label class="opt"><input type="checkbox" name="mcp_categorias" value="documentacion"><span class="opt-text">Documentación</span></label>
+        <label class="opt"><input type="checkbox" name="mcp_categorias" value="comunicacion"><span class="opt-text">Comunicación</span></label>
+        <label class="opt"><input type="checkbox" name="mcp_categorias" value="base_datos"><span class="opt-text">Base de datos</span></label>
+        <label class="opt"><input type="checkbox" name="mcp_categorias" value="observabilidad"><span class="opt-text">Observabilidad</span></label>
+        <label class="opt"><input type="checkbox" name="mcp_categorias" value="nube"><span class="opt-text">Nube</span></label>
+        <label class="opt"><input type="checkbox" name="mcp_categorias" value="diseno"><span class="opt-text">Diseño</span></label>
+        <label class="opt"><input type="checkbox" name="mcp_categorias" value="crm"><span class="opt-text">CRM</span></label>
+        <label class="opt"><input type="checkbox" name="mcp_categorias" value="otro"><span class="opt-text">Otro</span></label>
+      </div>
+      <span class="hint">Especifica abajo solo las que marcaste. Deja en blanco lo que no aplique.</span>
+    </div>
+
+    <div class="field">
+      <label for="mcp_gestion_tareas">Gestión de tareas — ¿cuál?</label>
+      <input type="text" id="mcp_gestion_tareas" name="mcp_gestion_tareas" placeholder="Ej. Jira, Azure Boards, Trello, Linear, Asana">
+    </div>
+    <div class="field">
+      <label for="mcp_repositorio">Repositorio de código — ¿cuál?</label>
+      <input type="text" id="mcp_repositorio" name="mcp_repositorio" placeholder="Ej. GitHub, GitLab, Bitbucket, Azure DevOps">
+    </div>
+    <div class="field">
+      <label for="mcp_documentacion">Documentación / conocimiento — ¿dónde vive?</label>
+      <input type="text" id="mcp_documentacion" name="mcp_documentacion" placeholder="Ej. Confluence, Notion, SharePoint, Google Drive">
+    </div>
+    <div class="field">
+      <label for="mcp_comunicacion">Comunicación — ¿cuál?</label>
+      <input type="text" id="mcp_comunicacion" name="mcp_comunicacion" placeholder="Ej. Slack, Teams, Outlook, Gmail">
+    </div>
+    <div class="field">
+      <label for="mcp_base_datos">Base de datos — ¿cuál?</label>
+      <input type="text" id="mcp_base_datos" name="mcp_base_datos" placeholder="Ej. PostgreSQL, MySQL, SQLite, MongoDB, Snowflake">
+    </div>
+    <div class="field">
+      <label for="mcp_observabilidad">Observabilidad / logs — ¿cuál?</label>
+      <input type="text" id="mcp_observabilidad" name="mcp_observabilidad" placeholder="Ej. Datadog, Sentry, CloudWatch, Grafana">
+    </div>
+    <div class="field">
+      <label for="mcp_nube">Nube / servicios — ¿cuál?</label>
+      <input type="text" id="mcp_nube" name="mcp_nube" placeholder="Ej. AWS (Docs, S3, Lambda), Azure, GCP">
+    </div>
+    <div class="field">
+      <label for="mcp_diseno">Diseño / producto — ¿cuál?</label>
+      <input type="text" id="mcp_diseno" name="mcp_diseno" placeholder="Ej. Figma, PRDs">
+    </div>
+    <div class="field">
+      <label for="mcp_crm">CRM / negocio — ¿cuál?</label>
+      <input type="text" id="mcp_crm" name="mcp_crm" placeholder="Ej. Salesforce, HubSpot">
+    </div>
+    <div class="field">
+      <label for="mcp_otros">Otras integraciones a conectar vía MCP</label>
+      <input type="text" id="mcp_otros" name="mcp_otros" placeholder="Texto libre">
+    </div>
+    <div class="field">
+      <label for="mcp_restricciones">Restricciones de seguridad/acceso para los MCPs</label>
+      <textarea id="mcp_restricciones" name="mcp_restricciones" placeholder="Ej. mínimo privilegio, credenciales de solo lectura, qué NO conectar"></textarea>
+    </div>
+  </section>
+
+  <!-- ORGANIZACIÓN -->
+  <section class="apartado">
+    <div class="apartado-head">
+      <div class="marker"><span class="num">04</span><span class="kicker">Organización y gobernanza</span></div>
+      <h2>¿Quiénes adoptan Kiro?</h2>
+      <p class="desc">A completar por el perfil de negocio / sponsor, con input del técnico.</p>
+    </div>
+
+    <div class="field">
+      <label for="num_personas"><span class="q-num">19.</span> ¿Cuántas personas conforman el equipo (o equipos) y qué roles?</label>
+      <textarea id="num_personas" name="num_personas" placeholder="Ej. 1 equipo: 4 backend, 2 frontend, 1 QA"></textarea>
+    </div>
+
+    <div class="field">
+      <label for="champion"><span class="q-num">20.</span> ¿Quién sería el/los champion(s) técnico(s) que lidera la adopción?</label>
+      <input type="text" id="champion" name="champion" placeholder="Nombre y rol">
+    </div>
+
+    <div class="field">
+      <div class="q-label"><span class="q-num">21.</span> ¿Cómo describiría la cultura de cambio del equipo?</div>
+      <div class="options">
+        <label class="opt"><input type="radio" name="cultura_cambio" value="abierta"><span class="opt-text">Muy abierta / entusiasta</span></label>
+        <label class="opt"><input type="radio" name="cultura_cambio" value="neutral"><span class="opt-text">Neutral, se adapta con acompañamiento</span></label>
+        <label class="opt"><input type="radio" name="cultura_cambio" value="resistente"><span class="opt-text">Resistente, requiere gestión del cambio</span></label>
+      </div>
+    </div>
+
+    <div class="field">
+      <label for="resistencias"><span class="q-num">22.</span> ¿Anticipan alguna resistencia o preocupación específica?</label>
+      <textarea id="resistencias" name="resistencias" placeholder="Seguridad de código, pérdida de control, calidad, curva de aprendizaje..."></textarea>
+    </div>
+
+    <div class="field">
+      <div class="q-label"><span class="q-num">23.</span> ¿El programa involucra uno o varios equipos en paralelo?</div>
+      <div class="options inline">
+        <label class="opt"><input type="radio" name="num_equipos_paralelo" value="Un solo equipo"><span class="opt-text">Un solo equipo</span></label>
+        <label class="opt"><input type="radio" name="num_equipos_paralelo" value="2-3 equipos"><span class="opt-text">2–3 equipos</span></label>
+        <label class="opt"><input type="radio" name="num_equipos_paralelo" value="4 o más equipos"><span class="opt-text">4 o más equipos</span></label>
+      </div>
+    </div>
+
+    <div class="field">
+      <div class="q-label"><span class="q-num">24.</span> Modalidad preferida</div>
+      <div class="options inline">
+        <label class="opt"><input type="radio" name="modalidad" value="1a1"><span class="opt-text">1:1 coaching</span></label>
+        <label class="opt"><input type="radio" name="modalidad" value="grupal"><span class="opt-text">Workshop grupal</span></label>
+        <label class="opt"><input type="radio" name="modalidad" value="hibrido"><span class="opt-text">Híbrido</span></label>
+      </div>
+    </div>
+
+    <div class="field">
+      <label for="tamano_grupo"><span class="q-num">25.</span> ¿Tamaño de grupo por sesión?</label>
+      <input type="text" id="tamano_grupo" name="tamano_grupo" placeholder="Ej. 8 personas">
+    </div>
+  </section>
+
+  <!-- OBJETIVOS -->
+  <section class="apartado">
+    <div class="apartado-head">
+      <div class="marker"><span class="num">05</span><span class="kicker">Objetivos y métricas de éxito</span></div>
+      <h2>¿Cómo luce el éxito?</h2>
+      <p class="desc">A completar por el perfil de negocio / sponsor.</p>
+    </div>
+
+    <div class="field">
+      <label for="objetivos"><span class="q-num">26.</span> ¿Qué esperan lograr al final del programa?</label>
+      <textarea id="objetivos" name="objetivos" placeholder="Ej. reducir tiempo de desarrollo, validar adopción permanente, mejorar calidad/seguridad"></textarea>
+    </div>
+
+    <div class="field">
+      <label for="metricas_exito"><span class="q-num">27.</span> ¿Cómo van a medir el éxito?</label>
+      <textarea id="metricas_exito" name="metricas_exito" placeholder="Ej. tiempos Kiro vs. tradicional, consumo de créditos, encuestas, bugs en producción"></textarea>
+    </div>
+
+    <div class="field">
+      <label for="timeline"><span class="q-num">28.</span> ¿Existe fecha límite, evento o hito de negocio que condicione el timeline?</label>
+      <input type="text" id="timeline" name="timeline" placeholder="Ej. Lanzamiento en Q1, auditoría, etc.">
+    </div>
+
+    <div class="field">
+      <div class="q-label"><span class="q-num">29.</span> ¿Qué duración visualizan?</div>
+      <div class="options inline">
+        <label class="opt"><input type="radio" name="duracion" value="4-5 semanas (PoC acotado)"><span class="opt-text">4–5 sem (PoC)</span></label>
+        <label class="opt"><input type="radio" name="duracion" value="6-7 semanas (programa estándar)"><span class="opt-text">6–7 sem (estándar)</span></label>
+        <label class="opt"><input type="radio" name="duracion" value="8+ semanas / a definir"><span class="opt-text">8+ sem</span></label>
+      </div>
+    </div>
+
+    <div class="field">
+      <label for="plan_producto"><span class="q-num">30.</span> ¿Tier de licencias previsto?</label>
+      <input type="text" id="plan_producto" name="plan_producto" placeholder="Ej. Pro $20 / Pro+ $40 / Power $200">
+    </div>
+
+    <div class="field">
+      <label for="comentarios"><span class="q-num">31.</span> Comentarios adicionales</label>
+      <textarea id="comentarios" name="comentarios" placeholder="Restricciones, expectativas del liderazgo, casos de otros equipos..."></textarea>
+    </div>
+  </section>
+
+</form>
+</div></main>
+
+<div class="actions"><div class="wrap">
+  <span class="status" id="save-status">Guardado automático <b>activo</b></span>
+  <button class="btn ghost" id="btn-reset" type="button">Borrar respuestas</button>
+  <button class="btn" id="btn-md" type="button">⬇ Markdown</button>
+  <button class="btn primary" id="btn-json" type="button">⬇ Descargar JSON</button>
+</div></div>
+
+<footer><div class="wrap">
+  <div class="site">WWW.ETRIBE.COM.MX</div>
+  <p>Cuestionario de diagnóstico para el programa de adopción de Kiro. Sus respuestas no salen de este navegador hasta que descarga el archivo.</p>
+</div></footer>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+/* Config específica del formulario Kiro: pesos de experticia, niveles de
+   training path, y construcción de la salida JSON + Markdown. */
+window.DIAGNOSTICO_CONFIG = {
+  tema: "kiro",
+
+  // Pesos 0-100 por respuesta. El puntaje final es el promedio de las señales respondidas.
+  pesosExperticia: {
+    tiempo_usando_ia: { nunca: 0, menos_3_meses: 30, "3_a_12_meses": 65, mas_1_ano: 100 },
+    usa_git_fluido:   { no: 0, basico: 50, fluido: 100 },
+    nivel_prompting:  { "1": 0, "2": 25, "3": 50, "4": 75, "5": 100 },
+    nivel_agentico:   { "1": 0, "2": 25, "3": 50, "4": 75, "5": 100 },
+    ha_creado_artefactos: { nunca: 0, alguno: 55, varios: 100 }
+  },
+
+  // Umbrales por puntaje (de menor a mayor). El primero cuyo max >= puntaje gana.
+  niveles: [
+    { id: "basico", max: 35, etiqueta: "Básico — Vibe Coding + AI Literacy + Hooks",
+      desc: "Para quienes no programan profesionalmente o es su primer contacto con IA para código. Fundamentos de AI Literacy, context engineering y hooks." },
+    { id: "basico_builder", max: 65, etiqueta: "Básico → Builder (híbrido)",
+      desc: "Base sólida con transición a AI-DLC. Fundamentos acelerados + primeros pasos de la metodología completa sobre un proyecto real." },
+    { id: "builder", max: 100, etiqueta: "Builder — AI-DLC + MCP + Proyecto Real",
+      desc: "Equipos que ya programan y usan Git. Metodología AI-DLC end-to-end: inception, MCP, mob elaboration y operations sobre un proyecto real." }
+  ],
+
+  // Construye el objeto 'secciones' del esquema a partir de los campos del form.
+  construirSecciones: function (campo, casos) {
+    return {
+      experticia: {
+        tiempo_usando_ia: campo("tiempo_usando_ia"),
+        nivel_prompting: campo("nivel_prompting"),
+        nivel_agentico: campo("nivel_agentico"),
+        ha_creado_artefactos: campo("ha_creado_artefactos"),
+        herramientas_ia_actuales: campo("herramientas_ia_actuales"),
+        experiencia_previa: campo("experiencia_previa")
+      },
+      contexto_tecnico: {
+        stack: campo("stack"),
+        arquitectura: campo("arquitectura"),
+        repositorios_ci_cd: campo("repositorios_ci_cd"),
+        usa_git_fluido: campo("usa_git_fluido"),
+        tipo_proyecto: campo("tipo_proyecto"),
+        disenos_specs: campo("disenos_specs"),
+        prefiere_estructura: campo("prefiere_estructura"),
+        integraciones: campo("integraciones"),
+        trabaja_sobre_aws: campo("trabaja_sobre_aws"),
+        acceso_aws: campo("acceso_aws"),
+        tiene_tests: campo("tiene_tests")
+      },
+      casos_uso: {
+        casos: casos.map(function (c) {
+          return { proceso: c.proceso, dolor: c.dolor, frecuencia: c.frecuencia, prioridad: c.prioridad, capacidad: "" };
+        }),
+        piloto_mvp: campo("piloto_mvp")
+      },
+      integraciones_mcp: {
+        categorias: campo("mcp_categorias"),
+        gestion_tareas: campo("mcp_gestion_tareas"),
+        repositorio: campo("mcp_repositorio"),
+        documentacion: campo("mcp_documentacion"),
+        comunicacion: campo("mcp_comunicacion"),
+        base_datos: campo("mcp_base_datos"),
+        observabilidad: campo("mcp_observabilidad"),
+        nube: campo("mcp_nube"),
+        diseno: campo("mcp_diseno"),
+        crm: campo("mcp_crm"),
+        otros: campo("mcp_otros"),
+        restricciones: campo("mcp_restricciones")
+      },
+      organizacion: {
+        num_personas: campo("num_personas"),
+        num_equipos_paralelo: campo("num_equipos_paralelo"),
+        cultura_cambio: campo("cultura_cambio"),
+        resistencias: campo("resistencias"),
+        modalidad: campo("modalidad"),
+        tamano_grupo: campo("tamano_grupo"),
+        autonomia_agentes: ""
+      },
+      objetivos: {
+        objetivos: campo("objetivos"),
+        metricas_exito: campo("metricas_exito"),
+        timeline: campo("timeline"),
+        duracion: campo("duracion"),
+        plan_producto: campo("plan_producto"),
+        comentarios: campo("comentarios")
+      }
+    };
+  },
+
+  // Markdown compatible con el parser existente (secciones A–E, preguntas numeradas).
+  aMarkdown: function (d) {
+    var s = d.secciones, c = d.contacto;
+    var L = [];
+    L.push("# CUESTIONARIO DE DIAGNÓSTICO");
+    L.push("## Adopción de Kiro y AI-DLC en equipos de desarrollo");
+    L.push("");
+    L.push("## Datos de contacto");
+    L.push("");
+    L.push("| Empresa / Organización | " + (d.empresa || "") + " |");
+    L.push("| :---- | :---- |");
+    L.push("| Fecha de llenado | " + (c.fecha || "") + " |");
+    L.push("| Nombre y rol — Perfil técnico | " + (c.perfil_tecnico || "") + " |");
+    L.push("| Nombre y rol — Perfil de negocio / sponsor | " + (c.perfil_negocio || "") + " |");
+    L.push("| Proyecto o producto sobre el que se aplicaría Kiro | " + (c.proyecto || "") + " |");
+    L.push("");
+    L.push("> Ruta de training path recomendada: **" + (d.training_path.etiqueta || "") + "** (puntaje experticia: " + d.training_path.puntaje_experticia + "/100).");
+    L.push("");
+    L.push("## Sección A — Contexto técnico y arquitectura");
+    L.push("");
+    L.push("> 1. ¿Cuál es el stack tecnológico principal del proyecto?  \n>    " + (s.contexto_tecnico.stack || ""));
+    L.push("> 2. ¿Cómo describiría la arquitectura actual?  \n>    " + (s.contexto_tecnico.arquitectura || ""));
+    L.push("> 3. ¿Dónde vive el código y cómo es el flujo de trabajo actual?  \n>    " + (s.contexto_tecnico.repositorios_ci_cd || ""));
+    L.push("> 4. ¿El proyecto es greenfield o brownfield?  \n>    " + (s.contexto_tecnico.tipo_proyecto || ""));
+    L.push("> 5. ¿Existen diseños o especificaciones ya definidas?  \n>    " + (s.contexto_tecnico.disenos_specs || ""));
+    L.push("> 6. ¿Qué integraciones o sistemas externos son críticos?  \n>    " + (s.contexto_tecnico.integraciones || ""));
+    L.push("> 7. ¿Tienen acceso administrativo a AWS y a la consola?  \n>    " + (s.contexto_tecnico.acceso_aws || ""));
+    L.push("");
+    L.push("## Sección B — Herramientas de IA y madurez actual");
+    L.push("");
+    L.push("> 8. ¿El equipo usa actualmente alguna herramienta de IA para desarrollo?  \n>    " + (s.experiencia ? "" : "") + (s.experticia.herramientas_ia_actuales || ""));
+    L.push("> 9. ¿Qué tan familiarizado está el equipo con prompt engineering y flujos agénticos?  \n>    prompt engineering: " + (s.experticia.nivel_prompting || "") + " · flujos agénticos: " + (s.experticia.nivel_agentico || ""));
+    L.push("> 10. ¿Qué tareas del día a día consumen más tiempo o generan más fricción hoy?  \n>    " + (resumenCasos(s) || ""));
+    L.push("> 11. ¿Experiencia previa adoptando herramientas de IA?  \n>    " + (s.experticia.experiencia_previa || ""));
+    L.push("");
+    L.push("## Sección C — Casos de uso candidatos para Kiro");
+    L.push("");
+    L.push("| Proceso / tarea actual | Dolor o cuello de botella | Frecuencia | Prioridad (Alta/Media/Baja) |");
+    L.push("| :---- | :---- | :---- | :---- |");
+    (s.casos_uso.casos || []).forEach(function (x) {
+      L.push("| " + (x.proceso || "") + " | " + (x.dolor || "") + " | " + (x.frecuencia || "") + " | " + (x.prioridad || "") + " |");
+    });
+    L.push("");
+    L.push("> 12. De los procesos anteriores, ¿cuál elegirían como piloto o MVP?  \n>    " + (s.casos_uso.piloto_mvp || ""));
+    L.push("");
+    var im = s.integraciones_mcp || {};
+    var imPares = [["Gestión de tareas", im.gestion_tareas], ["Repositorio", im.repositorio],
+      ["Documentación", im.documentacion], ["Comunicación", im.comunicacion],
+      ["Base de datos", im.base_datos], ["Observabilidad", im.observabilidad],
+      ["Nube", im.nube], ["Diseño", im.diseno], ["CRM", im.crm], ["Otros", im.otros]]
+      .filter(function (p) { return p[1]; });
+    if (imPares.length || im.restricciones) {
+      L.push("## Integraciones y MCPs a conectar");
+      L.push("");
+      imPares.forEach(function (p) { L.push("- **" + p[0] + ":** " + p[1]); });
+      if (im.restricciones) L.push("- **Restricciones de acceso:** " + im.restricciones);
+      L.push("");
+    }
+    L.push("## Sección D — Organización, equipos y gobernanza");
+    L.push("");
+    L.push("> 13. ¿Cuántas personas conforman el equipo y sus roles?  \n>    " + (s.organizacion.num_personas || ""));
+    L.push("> 14. ¿Quién sería el/los champion(s) técnico(s)?  \n>    " + (c.champion || ""));
+    L.push("> 15. ¿Cómo describiría la cultura de cambio del equipo?  \n>    " + (s.organizacion.cultura_cambio || ""));
+    L.push("> 16. ¿Anticipan alguna resistencia o preocupación específica?  \n>    " + (s.organizacion.resistencias || ""));
+    L.push("> 17. ¿Uno o varios equipos en paralelo?  \n>    " + (s.organizacion.num_equipos_paralelo || ""));
+    L.push("");
+    L.push("## Sección E — Objetivos y métricas de éxito");
+    L.push("");
+    L.push("> 18. ¿Qué esperan lograr al final del programa?  \n>    " + (s.objetivos.objetivos || ""));
+    L.push("> 19. ¿Cómo van a medir el éxito del programa?  \n>    " + (s.objetivos.metricas_exito || ""));
+    L.push("> 20. ¿Existe una fecha límite, evento o hito de negocio?  \n>    " + (s.objetivos.timeline || ""));
+    L.push("> 21. ¿Qué duración visualizan para el programa?  \n>    " + (s.objetivos.duracion || ""));
+    L.push("");
+    L.push("## Comentarios adicionales");
+    L.push("");
+    L.push(s.objetivos.comentarios || "");
+    L.push("");
+    return L.join("\n");
+
+    function resumenCasos(s) {
+      return (s.casos_uso.casos || []).map(function (x) { return x.proceso; }).filter(Boolean).join(", ");
+    }
+  }
+};
+</script>
+<script src="assets/formulario.js"></script>
+</body>
+</html>

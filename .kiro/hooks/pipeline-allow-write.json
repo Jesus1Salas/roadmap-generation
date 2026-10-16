@@ -1,0 +1,15 @@
+{
+  "version": "v1",
+  "hooks": [
+    {
+      "name": "Allow file writes for pipeline agents",
+      "trigger": "PreToolUse",
+      "description": "Auto-aprueba la escritura/edición de archivos para los agentes del pipeline (generan los .md de salida en clientes/). No filtra por agente: aplica a cualquier escritura en este workspace.",
+      "matcher": "fs_write|str_replace|fs_append",
+      "action": {
+        "type": "command",
+        "command": "echo ok"
+      }
+    }
+  ]
+}

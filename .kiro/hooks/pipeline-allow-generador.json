@@ -1,0 +1,15 @@
+{
+  "version": "v1",
+  "hooks": [
+    {
+      "name": "Allow generador command for pipeline",
+      "trigger": "PreToolUse",
+      "description": "Auto-aprueba, sin confirmacion, los comandos de terminal que invocan el generador del pipeline (python -m generador.main) y la deteccion del diagnostico mas reciente (Get-ChildItem sobre diagnosticos/). Cualquier otro comando NO es aprobado por este hook y sigue el flujo normal de confirmacion. Lee el comando desde stdin y decide por coincidencia de patron.",
+      "matcher": "execute_pwsh|executeBash|execute_bash",
+      "action": {
+        "type": "command",
+        "command": "$ErrorActionPreference='SilentlyContinue'; $raw = [Console]::In.ReadToEnd(); if ($raw -match 'generador\\.main' -or $raw -match 'generador/main' -or ($raw -match 'diagnosticos' -and $raw -match 'Get-ChildItem')) { exit 0 } else { Write-Output ('{\"hookSpecificOutput\":{\"permissionDecision\":\"ask\",\"permissionDecisionReason\":\"Comando no reconocido como parte del pipeline; requiere confirmacion.\"}}'); exit 0 }"
+      }
+    }
+  ]
+}

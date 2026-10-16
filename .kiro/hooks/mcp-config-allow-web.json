@@ -1,0 +1,15 @@
+{
+  "version": "v1",
+  "hooks": [
+    {
+      "name": "Allow web tools for agents",
+      "trigger": "PreToolUse",
+      "description": "Auto-aprueba el uso de web_search y web_fetch para todos los agentes del workspace (mcp-config-generator y diseno-actividades-ensenanza). Nota: el hook no filtra por agente — aplica a cualquier invocación de estas tools. Esto es intencional ya que ambos agentes con acceso web lo necesitan legítimamente.",
+      "matcher": "remote_web_search|web_fetch",
+      "action": {
+        "type": "command",
+        "command": "echo ok"
+      }
+    }
+  ]
+}

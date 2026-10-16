@@ -1,0 +1,84 @@
+{
+  "esquema_version": "1.0",
+  "tema": "quick_suite",
+  "generado_en": "2026-10-16T12:00:00.000Z",
+  "empresa": "Empresa Demo Quick",
+  "training_path": {
+    "nivel": "analitica_automatizacion",
+    "etiqueta": "Analítica de Datos + Automatización",
+    "puntaje_experticia": 52,
+    "ajustado_por_usuario": false
+  },
+  "contacto": {
+    "fecha": "2026-10-16",
+    "perfil_tecnico": "Luis Mora — Líder de IT",
+    "perfil_negocio": "Sofía Ramírez — Gerente de operación",
+    "champion": "Sofía Ramírez — Gerente de operación",
+    "proyecto": "Operaciones y Marketing"
+  },
+  "secciones": {
+    "experticia": {
+      "tiempo_usando_ia": "3_a_12_meses",
+      "nivel_prompting": "",
+      "nivel_agentico": "3",
+      "ha_creado_artefactos": "",
+      "herramientas_ia_actuales": "ChatGPT",
+      "experiencia_previa": "Han probado chatbots básicos y automatizaciones con Zapier."
+    },
+    "contexto_negocio": {
+      "areas": "Operaciones, Marketing, Atención a clientes",
+      "audiencia": "mixta",
+      "objetivo_principal": "analitica_automatizacion",
+      "herramientas_colaboracion": "Microsoft Teams, Outlook",
+      "conocimiento_org": "SharePoint y documentos sueltos",
+      "apps_negocio": "Jira, HubSpot",
+      "procesos_manuales": "Reportes semanales, consolidar datos de varias fuentes",
+      "manejo_datos": "ocasional",
+      "fuentes_datos": "Excel de ventas, base de datos de CRM",
+      "seguridad_compliance": "Datos personales de clientes, acceso por rol",
+      "requiere_apps_sin_codigo": "si",
+      "iniciativas_previas": "Han probado chatbots básicos y automatizaciones con Zapier.",
+      "acceso_aws": "Sí, con IAM Identity Center",
+      "incluye_linux": "no"
+    },
+    "casos_uso": {
+      "casos": [
+        { "proceso": "Reporte semanal de ventas", "dolor": "Es manual y tarda horas", "frecuencia": "Semanal", "prioridad": "Alta", "capacidad": "BI" },
+        { "proceso": "Respuestas a correos de clientes", "dolor": "Repetitivo", "frecuencia": "Diaria", "prioridad": "Media", "capacidad": "Agentes" },
+        { "proceso": "Consolidar datos de varias fuentes", "dolor": "Propenso a error", "frecuencia": "Semanal", "prioridad": "Alta", "capacidad": "Automate" }
+      ],
+      "piloto_mvp": "Dashboard automático de ventas semanales"
+    },
+    "integraciones_mcp": {
+      "categorias": "gestion_tareas, comunicacion, crm, base_datos",
+      "gestion_tareas": "Jira",
+      "repositorio": "",
+      "documentacion": "SharePoint",
+      "comunicacion": "Microsoft Teams",
+      "base_datos": "Snowflake",
+      "observabilidad": "",
+      "nube": "AWS",
+      "diseno": "",
+      "crm": "HubSpot",
+      "otros": "",
+      "restricciones": "Acceso de solo lectura a datos de clientes; cumplir políticas de privacidad."
+    },
+    "organizacion": {
+      "num_personas": "12 personas de Operaciones y Marketing",
+      "num_equipos_paralelo": "2-3 áreas",
+      "cultura_cambio": "neutral",
+      "resistencias": "Preocupación por privacidad de datos de clientes",
+      "modalidad": "grupal",
+      "tamano_grupo": "12 personas",
+      "autonomia_agentes": "Autonomía media"
+    },
+    "objetivos": {
+      "objetivos": "Reducir trabajo manual y acelerar reportes",
+      "metricas_exito": "Horas ahorradas, número de flows activos, adopción por área",
+      "timeline": "Cierre de trimestre",
+      "duracion": "6-7 semanas",
+      "plan_producto": "Pro",
+      "comentarios": ""
+    }
+  }
+}

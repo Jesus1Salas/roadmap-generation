@@ -1,0 +1,19 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+env/
+
+# Salida generada por el pipeline (demo / clientes)
+clientes/
+
+# Archivos del sistema
+.DS_Store
+Thumbs.db
+
+# Entradas de clientes (datos sensibles); se conserva el ejemplo y el README
+diagnosticos/*
+!diagnosticos/README.md
+!diagnosticos/ejemplo_kiro.json
